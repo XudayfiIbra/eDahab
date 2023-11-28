@@ -27,6 +27,7 @@ void main(){
 
   var dailySendingBundle;
   var weeklySendingBundle;
+  var limitedSendingBundle;
 
   // sending bundle authentication
   if(bundleChoosed == 1){
@@ -37,6 +38,10 @@ void main(){
     var wSendBundle = stdin.readLineSync();
     weeklySendingBundle = int.parse(wSendBundle ?? '-1');
     internetBundleSendingWeekly(weeklySendingBundle);
+  }else if(bundleChoosed == 3){
+    var lSendBundle = stdin.readLineSync();
+    limitedSendingBundle = int.parse(lSendBundle ?? '-1');
+    internetBundleSendingLimited(limitedSendingBundle);
   }
   
 
@@ -44,7 +49,7 @@ void main(){
 
   // mobile number authenticaton
   var mobileNumber = stdin.readLineSync();
-  phoneNumberAuthentication(mobileNumber, bundleChoosed, dailySendingBundle, weeklySendingBundle);
+  phoneNumberAuthentication(mobileNumber, bundleChoosed, dailySendingBundle, weeklySendingBundle, limitedSendingBundle);
   
 
 
@@ -54,7 +59,7 @@ void main(){
   if(mobileNumberLength == 9){
     var passW = stdin.readLineSync();
     var password = int.parse(passW ?? '-1');
-    pinAuthentication(password, mobileNumber, bundleChoosed, dailySendingBundle, weeklySendingBundle);
+    pinAuthentication(password, mobileNumber, bundleChoosed, dailySendingBundle, weeklySendingBundle, limitedSendingBundle);
 
   }else{
     exit(1);
